@@ -123,7 +123,64 @@ namespace HSEBankApp.ConsoleUI
 
         static void ManageCategories()
         {
-            // Аналогичная реализация для категорий
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("=== Управление категориями ===");
+                Console.WriteLine("1. Создать категорию");
+                Console.WriteLine("2. Список категорий");
+                Console.WriteLine("3. Назад");
+                Console.Write("Выберите действие: ");
+
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        CreateCategory();
+                        break;
+                    case "2":
+                        ShowCategories();
+                        break;
+                    case "3":
+                        return;
+                    default:
+                        ShowError("Неверный выбор!");
+                        break;
+                }
+            }
+        }
+
+        static void CreateCategory()
+        {
+            try
+            {
+                Console.Write("Тип категории (1 - Доход, 2 - Расход): ");
+                var typeInput = Console.ReadLine();
+                var type = typeInput == "1" ? TransactionType.Income : TransactionType.Expense;
+
+                Console.Write("Название категории: ");
+                var name = Console.ReadLine();
+
+                var category = new Category(type, name);
+                _unitOfWork.Categories.Add(category);
+                _unitOfWork.Commit();
+
+                ShowSuccess($"Категория '{name}' создана! ID: {category.Id}");
+            }
+            catch (Exception ex)
+            {
+                ShowError($"Ошибка: {ex.Message}");
+            }
+        }
+
+        static void ShowCategories()
+        {
+            Console.WriteLine("\nСписок категорий:");
+            foreach (var category in _unitOfWork.Categories.GetAll())
+            {
+                Console.WriteLine($"[{category.Id}] {category.Type.ToString().PadRight(10)} {category.Name}");
+            }
+            Console.WriteLine("\nНажмите любую клавишу...");
+            Console.ReadKey();
         }
 
         static void ManageOperations()
