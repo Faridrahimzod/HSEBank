@@ -57,7 +57,7 @@
 ## Инструкция по запуску
 
 ### 1. Требования
-- Установите [.NET 6 SDK](https://dotnet.microsoft.com/download).
+- Установите [.NET 8 SDK](https://dotnet.microsoft.com/download).
 - Установите IDE (Visual Studio 2022/Rider/VSCode).
 
 ### 2. Сборка
@@ -92,11 +92,11 @@ dotnet run --project HSEBankApp.ConsoleUI
 **Просмотра аналитики
 
 ## Обоснование выбора паттернов
-**Factory Method и Adapter:
+**`Factory Method и Adapter`:
 Позволили гибко работать с разными форматами данных. Добавление нового формата (например, XML) потребует только создания нового класса-обработчика.
 
-**Decorator и Strategy:
+**`Decorator и Strategy`:
 Сделали систему расширяемой. Например, можно добавить новую стратегию группировки по месяцам или декоратор для кеширования.
 
-**Unit of Work и Repository:
+**`Unit of Work и Repository`:
 Обеспечили согласованность данных и упростили тестирование. Замена источника данных (например, с in-memory на БД) потребует минимальных изменений.
