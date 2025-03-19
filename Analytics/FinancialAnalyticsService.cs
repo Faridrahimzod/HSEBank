@@ -1,6 +1,4 @@
-﻿// Core/Services/Analytics/FinancialAnalyticsService.cs
-
-using Interfaces;
+﻿using Interfaces;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -17,7 +15,6 @@ namespace Analytics
             _operationRepository = operationRepository;
         }
 
-        // a. Разница доходов и расходов
         public decimal GetIncomeExpenseDifference(DateTime startDate, DateTime endDate)
         {
             var operations = _operationRepository.GetAll()
@@ -34,14 +31,13 @@ namespace Analytics
             return totalIncome - totalExpense;
         }
 
-        // b. Группировка по категориям (базовая реализация)
         public Dictionary<string, decimal> GroupOperationsByCategory(DateTime startDate, DateTime endDate)
         {
             return _operationRepository.GetAll()
                 .Where(o => o.Date >= startDate && o.Date <= endDate)
                 .GroupBy(o => o.CategoryId)
                 .ToDictionary(
-                    g => g.First().CategoryId.ToString(), // Замените на имя категории через репозиторий
+                    g => g.First().CategoryId.ToString(), 
                     g => g.Sum(o => o.Amount)
                 );
         }

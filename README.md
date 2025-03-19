@@ -100,3 +100,10 @@ dotnet run --project HSEBankApp.ConsoleUI
 
 **`Unit of Work и Repository`:
 ќбеспечили согласованность данных и упростили тестирование. «амена источника данных (например, с in-memory на Ѕƒ) потребует минимальных изменений.
+
+
+## Unit тесты
+**`OperationRepositoryTests`
+**`CategoryGroupingStrategyTests`
+**`JsonImporterTests`
+**`BalanceRecalculationServiceTests`

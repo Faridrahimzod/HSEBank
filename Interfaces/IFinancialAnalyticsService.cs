@@ -1,5 +1,4 @@
-﻿// Core/Services/Analytics/IFinancialAnalyticsService.cs
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Interfaces

@@ -1,5 +1,4 @@
-﻿// Core/Services/ImportExport/Exporters/CsvExporter.cs
-using Interfaces;
+﻿using Interfaces;
 using Models;
 using System.Globalization;
 using System.Text;
@@ -16,7 +15,7 @@ namespace ImportExport
         {
             var csv = new StringBuilder();
 
-            // Accounts section
+            
             csv.AppendLine("ACCOUNTS");
             csv.AppendLine("Id,Name,Balance");
             foreach (var acc in accounts)
@@ -28,7 +27,6 @@ namespace ImportExport
                 );
             }
 
-            // Categories section
             csv.AppendLine("\nCATEGORIES");
             csv.AppendLine("Id,Type,Name");
             foreach (var cat in categories)
@@ -40,7 +38,6 @@ namespace ImportExport
                 );
             }
 
-            // Operations section
             csv.AppendLine("\nOPERATIONS");
             csv.AppendLine("Id,Type,BankAccountId,Amount,Date,Description,CategoryId");
             foreach (var op in operations)

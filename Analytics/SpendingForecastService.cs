@@ -6,7 +6,7 @@ namespace Analytics
     {
         public decimal ForecastMonthlyExpenses(decimal currentSpending, int months)
         {
-            // Простейший пример: линейный прогноз
+            
             return currentSpending * months;
         }
     }

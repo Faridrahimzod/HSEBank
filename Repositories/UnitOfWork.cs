@@ -11,7 +11,7 @@ namespace Repositories
         public IRepository<BankAccount> Accounts { get; }
         public IRepository<Category> Categories { get; }
         public IRepository<Operation> Operations { get; }
-        public IFinancialAnalyticsService Analytics { get; } // Добавляем сервис аналитики
+        public IFinancialAnalyticsService Analytics { get; }
         public BalanceRecalculationService BalanceRecalculator { get; }
 
         public UnitOfWork()
@@ -23,7 +23,6 @@ namespace Repositories
             BalanceRecalculator = new BalanceRecalculationService(Accounts, Operations);
         }
 
-        // Здесь можно добавить Commit() для транзакций (пока не требуется для in-memory)
         public void Commit() { }
 
         public void ExportData(ExportFormat format, string path)

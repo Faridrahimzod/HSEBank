@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace Statistics
 {
-    // 1. Добавляем интерфейс для финансовых сервисов
+
     public interface IFinancialService
     {
         void CreateAccount(string name);

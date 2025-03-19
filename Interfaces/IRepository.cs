@@ -1,5 +1,4 @@
-﻿// Core/Interfaces/IRepository.cs
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Interfaces

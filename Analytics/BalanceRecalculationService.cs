@@ -17,7 +17,6 @@ namespace Analytics
             _operationRepository = operationRepository;
         }
 
-        // Пересчет баланса для всех счетов
         public void RecalculateAllBalances()
         {
             foreach (var account in _accountRepository.GetAll())
@@ -25,8 +24,6 @@ namespace Analytics
                 RecalculateBalance(account.Id);
             }
         }
-
-        // Пересчет баланса для конкретного счета
         public void RecalculateBalance(Guid accountId)
         {
             var account = _accountRepository.GetById(accountId);
@@ -38,7 +35,7 @@ namespace Analytics
             decimal newBalance = operations
                 .Sum(o => o.Type == TransactionType.Income ? o.Amount : -o.Amount);
 
-            account.UpdateBalance(newBalance - account.Balance); // Корректировка разницы
+            account.UpdateBalance(newBalance - account.Balance);
             _accountRepository.Update(account);
         }
     }

@@ -12,7 +12,7 @@ namespace Interfaces
         IRepository<BankAccount> Accounts { get; }
         IRepository<Category> Categories { get; }
         IRepository<Operation> Operations { get; }
-        IFinancialAnalyticsService Analytics { get; } // Добавляем сервис аналитики
+        IFinancialAnalyticsService Analytics { get; } 
 
         void Commit();
     }
